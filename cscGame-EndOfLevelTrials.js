@@ -37,6 +37,8 @@ const EARTH_HEIGHT = 700
 const LEFT_ARROW = 37
 const RIGHT_ARROW = 39
 const SPACE_BAR = 32
+const UP_ARROW = 38
+const DOWN_ARROW = 40
 
 //rocket variables
 const ROCKET_HEIGHT = 45
@@ -134,8 +136,8 @@ function keyDownFunction(keyboardEvent) {
   //check if arrow keys are pressed
   if (keyDown == LEFT_ARROW) {
     //rocketSpeed = 0
-    rocketSpeed = - 20
-    rocketXPosition += rocketSpeed
+    rocketSpeed = 20
+    rocketXPosition -= rocketSpeed
     moveLeftTime = new Date().getTime()
     moveRightTime = 0
     //rocketSpeed += 5
@@ -152,6 +154,12 @@ function keyDownFunction(keyboardEvent) {
   }
   if (keyDown == SPACE_BAR) {
     location.reload()
+  }
+  if (keyDown == UP_ARROW) {
+    rocketYPosition -= rocketSpeed
+  }
+  if (keyDown == DOWN_ARROW) {
+    rocketYPosition += rocketSpeed
   }
 }
 
@@ -213,6 +221,11 @@ function updateCanvas() {
     rocketXPosition += ROCKET_WIDTH
   } else if (rocketXPosition > WIDTH - ROCKET_WIDTH) {
     rocketXPosition -= ROCKET_WIDTH
+  }
+  if (rocketYPosition > HEIGHT - ROCKET_HEIGHT) {
+    rocketYPosition = HEIGHT - ROCKET_HEIGHT
+  } else if (rocketYPosition < 0) {
+    rocketYPosition = 0
   }
 
   //pick the level colour and draw the background

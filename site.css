@@ -1,4 +1,7 @@
-﻿.mainBody {
+﻿body {
+    overflow: hidden; /* Hide scrollbars */
+  }
+.mainBody {
     background-color:black;
     text-align: center;
     color: white;
@@ -7,7 +10,7 @@
 
 .mainTitle {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .gameBorder {
